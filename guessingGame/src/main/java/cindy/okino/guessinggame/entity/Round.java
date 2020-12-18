@@ -26,6 +26,10 @@ public class Round {
     public int getRoundId() {
         return roundId;
     }
+    
+    public void setRoundId(int id){
+        this.roundId = id;
+    }
 
     public String getGuess() {
         return guess;

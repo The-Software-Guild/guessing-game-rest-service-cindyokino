@@ -22,6 +22,10 @@ public class Game {
     public int getGameId() {
         return gameId;
     }
+    
+    public void setGameId(int id){
+        this.gameId = id;
+    }
 
     public String getAnswer() {
         return answer;
