@@ -9,11 +9,17 @@ import java.util.List;
  */
 public interface RoundDao {
     
+    // Add a new round for a specific game to the database
     Round add(Round round);
     
+    // Get a list of all the rounds from the database
     List<Round> getAll();
     
-    Round findById(int id);
+    // Find a round by id from the database
+    Round findById(int id);   
+    
+    // Get a list of all the rounds of a specific game from the database
+    List<Round> findByGameId(int gameId);
     
     // Return true if the round exists and is updated at the database
     boolean update(Round round);
