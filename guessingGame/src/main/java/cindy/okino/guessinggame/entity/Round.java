@@ -16,10 +16,11 @@ public class Round {
     public Round(){        
     }
 
-    public Round(int roundId, String guess, LocalTime timeOfTheGuess) {
+    public Round(int roundId, String guess, LocalTime timeOfTheGuess, String resultOfTheGuess) {
         this.roundId = roundId;
         this.guess = guess;
         this.timeOfTheGuess = timeOfTheGuess;
+        this.resultOfTheGuess = resultOfTheGuess;
     }
 
     public int getRoundId() {

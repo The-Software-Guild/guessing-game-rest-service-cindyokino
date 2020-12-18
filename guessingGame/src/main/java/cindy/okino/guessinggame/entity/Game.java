@@ -13,8 +13,9 @@ public class Game {
     public Game() {        
     }
     
-    public Game(int gameId, String status) {
+    public Game(int gameId, String answer, String status) {
         this.gameId = gameId;
+        this.answer = answer;
         this.status = status;
     }
 
