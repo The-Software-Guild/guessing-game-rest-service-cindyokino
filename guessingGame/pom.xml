@@ -46,4 +46,5 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <name>GuessingGame</name>
 </project>
