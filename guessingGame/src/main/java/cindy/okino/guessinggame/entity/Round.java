@@ -1,6 +1,6 @@
 package cindy.okino.guessinggame.entity;
 
-import java.time.LocalTime;
+import java.sql.Time;
 
 /**
  *
@@ -10,13 +10,13 @@ public class Round {
     
     private int roundId;
     private String guess;
-    private LocalTime timeOfTheGuess;
+    private Time timeOfTheGuess;
     private String resultOfTheGuess;
     
     public Round(){        
     }
 
-    public Round(int roundId, String guess, LocalTime timeOfTheGuess, String resultOfTheGuess) {
+    public Round(int roundId, String guess, Time timeOfTheGuess, String resultOfTheGuess) {
         this.roundId = roundId;
         this.guess = guess;
         this.timeOfTheGuess = timeOfTheGuess;
@@ -39,11 +39,11 @@ public class Round {
         this.guess = guess;
     }
 
-    public LocalTime getTimeOfTheGuess() {
+    public Time getTimeOfTheGuess() {
         return timeOfTheGuess;
     }
 
-    public void setTimeOfTheGuess(LocalTime timeOfTheGuess) {
+    public void setTimeOfTheGuess(Time timeOfTheGuess) {
         this.timeOfTheGuess = timeOfTheGuess;
     }
 
