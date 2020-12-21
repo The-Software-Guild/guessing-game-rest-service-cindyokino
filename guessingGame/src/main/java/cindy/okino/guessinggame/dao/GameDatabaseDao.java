@@ -29,22 +29,6 @@ public class GameDatabaseDao implements GameDao {
         this.jdbc = jdbc;
     }
     
-//    CONTROLLER
-//    @POST("/begin")
-//    public ResponseEntity<Game> begin() {
-//        return service.begin();
-//    }
-//
-//    SERVICE
-//    public Game begin() {
-//        //Prepare game object to be created:
-//        Game game = new Game();
-//        game.setAnswer("1873"); // Random
-//        game.setStatus("IN PROGRESS");
-//              
-//        return dao.add(game);
-//    }
-    
     @Override
     public Game add(Game game) {
         
