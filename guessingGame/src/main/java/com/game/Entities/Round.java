@@ -1,4 +1,4 @@
-package Entities;
+package com.game.Entities;
 
 import java.sql.Time;
 

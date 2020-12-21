@@ -1,7 +1,7 @@
-package Service;
+package com.game.Service;
 
-import Entities.Game;
-import Entities.Round;
+import com.game.Entities.Game;
+import com.game.Entities.Round;
 import java.util.List;
 
 /**
@@ -9,7 +9,7 @@ import java.util.List;
  * @author Cindy
  */
 public interface GuessingGameService {
-    void begin();
+    Game begin();
     Round guess(int gameId, String guess);
     List<Game> getGames();
     Game getGameById(int gameId); 

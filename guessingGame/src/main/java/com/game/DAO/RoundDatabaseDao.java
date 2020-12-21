@@ -1,6 +1,6 @@
-package DAO;
+package com.game.DAO;
 
-import Entities.Round;
+import com.game.Entities.Round;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

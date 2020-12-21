@@ -1,6 +1,6 @@
-package DAO;
+package com.game.DAO;
 
-import Entities.Game;
+import com.game.Entities.Game;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
