@@ -28,7 +28,23 @@ public class GameDatabaseDao implements GameDao {
     public GameDatabaseDao(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
-
+    
+//    CONTROLLER
+//    @POST("/begin")
+//    public ResponseEntity<Game> begin() {
+//        return service.begin();
+//    }
+//
+//    SERVICE
+//    public Game begin() {
+//        //Prepare game object to be created:
+//        Game game = new Game();
+//        game.setAnswer("1873"); // Random
+//        game.setStatus("IN PROGRESS");
+//              
+//        return dao.add(game);
+//    }
+    
     @Override
     public Game add(Game game) {
         
@@ -69,7 +85,7 @@ public class GameDatabaseDao implements GameDao {
 
     @Override
     public boolean update(Game game) {
-        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE id = ?";
+        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE gameId = ?";
 
         if (findById(game.getGameId()) != null) {
             jdbc.update(UPDATE_GAME, game.getAnswer(), game.getStatus(), game.getGameId());
@@ -82,7 +98,7 @@ public class GameDatabaseDao implements GameDao {
     @Override
     @Transactional
     public boolean deleteById(int id) {
-        final String DELETE_GAME_BY_ID = "DELETE FROM game WHERE id = ?";
+        final String DELETE_GAME_BY_ID = "DELETE FROM game WHERE gameId = ?";
 
         jdbc.update(DELETE_GAME_BY_ID, id);
 
