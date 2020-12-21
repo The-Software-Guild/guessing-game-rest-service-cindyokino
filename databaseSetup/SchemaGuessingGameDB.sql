@@ -15,5 +15,6 @@ CREATE TABLE round (
     guess VARCHAR(4) NOT NULL,
     timeOfTheGuess TIME NOT NULL,
     resultOfTheGuess VARCHAR(15),
-    gameId INT NOT NULL
+    gameId INT NOT NULL,
+    foreign key (gameId) references game(gameId)
 );
