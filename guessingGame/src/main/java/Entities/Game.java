@@ -1,4 +1,4 @@
-package cindy.okino.guessinggame.entity;
+package Entities;
 
 /**
  *

@@ -1,6 +1,6 @@
-package cindy.okino.guessinggame.dao;
+package DAO;
 
-import cindy.okino.guessinggame.entity.Game;
+import Entities.Game;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

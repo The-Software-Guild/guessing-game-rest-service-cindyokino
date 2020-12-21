@@ -1,6 +1,6 @@
-package cindy.okino.guessinggame.dao;
+package DAO;
 
-import cindy.okino.guessinggame.entity.Round;
+import Entities.Round;
 import java.util.List;
 
 /**
