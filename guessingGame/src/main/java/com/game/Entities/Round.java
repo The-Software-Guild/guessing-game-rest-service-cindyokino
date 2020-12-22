@@ -1,6 +1,7 @@
 package com.game.Entities;
 
-import java.sql.Time;
+import java.time.LocalTime;
+
 
 /**
  *
@@ -10,13 +11,13 @@ public class Round {
     
     private int roundId;
     private String guess;
-    private Time timeOfTheGuess;
+    private LocalTime timeOfTheGuess;
     private String resultOfTheGuess;
     
     public Round(){        
     }
 
-    public Round(int roundId, String guess, Time timeOfTheGuess, String resultOfTheGuess) {
+    public Round(int roundId, String guess, LocalTime timeOfTheGuess, String resultOfTheGuess) {
         this.roundId = roundId;
         this.guess = guess;
         this.timeOfTheGuess = timeOfTheGuess;
@@ -39,11 +40,11 @@ public class Round {
         this.guess = guess;
     }
 
-    public Time getTimeOfTheGuess() {
+    public LocalTime getTimeOfTheGuess() {
         return timeOfTheGuess;
     }
 
-    public void setTimeOfTheGuess(Time timeOfTheGuess) {
+    public void setTimeOfTheGuess(LocalTime timeOfTheGuess) {
         this.timeOfTheGuess = timeOfTheGuess;
     }
 
