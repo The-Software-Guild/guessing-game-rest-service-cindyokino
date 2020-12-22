@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -48,8 +50,9 @@ public class GuessingGameServiceImplementation implements GuessingGameService {
         // Prepare round object to be created:
         Round round = new Round();
         round.setGuess(guess);
-        round.setTimeOfTheGuess(LocalTime.now());  
-        String result = calculateResult(gameId, guess); // call method to calculate the result
+        round.setTimeOfTheGuess(LocalTime.now()); 
+        String verifiedGuess = verifyGuess(guess); // call method to verify if is a valid guess (contains only 4 numbers)
+        String result = calculateResult(gameId, verifiedGuess); // call method to calculate the result
         round.setResultOfTheGuess(result);
         round.setGameId(gameId);
         System.out.println(result);
@@ -124,5 +127,32 @@ public class GuessingGameServiceImplementation implements GuessingGameService {
         }
         String result = "e:" + e + ":p:" + p;            
         return result;
+    }
+    
+    // Verify if JSON guess received has 4 elements and contains only numbers
+    public String verifyGuess(String guess) {
+        // verify if String is not null
+        if (guess == null) { 
+            throw new IllegalArgumentException();
+        }
+        // verify if String lenght is not 4
+        if (guess.length() != 4) {
+            throw new IllegalArgumentException();
+        }
+        // call method to verify if string is not numeric
+        if (!isNumeric(guess)){
+            throw new IllegalArgumentException();
+        }
+        return guess;
+    }
+    
+    // Method to verify if string is numeric, should only have numbers from 0-9
+    public static boolean isNumeric(String strNum) {
+        try {
+            int in = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
