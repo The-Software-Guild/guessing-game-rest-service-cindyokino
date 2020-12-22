@@ -13,6 +13,7 @@ public class Round {
     private String guess;
     private LocalTime timeOfTheGuess;
     private String resultOfTheGuess;
+    private int gameId;
     
     public Round(){        
     }
@@ -55,4 +56,14 @@ public class Round {
     public void setResultOfTheGuess(String resultOfTheGuess) {
         this.resultOfTheGuess = resultOfTheGuess;
     }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+    
+    
 }

@@ -9,7 +9,7 @@ import java.util.List;
  * @author Cindy
  */
 public interface GuessingGameService {
-    Game begin();
+    int begin();
     Round guess(int gameId, String guess);
     List<Game> getGames();
     Game getGameById(int gameId); 
