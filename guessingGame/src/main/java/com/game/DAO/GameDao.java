@@ -19,7 +19,7 @@ public interface GameDao {
     Game findById(int id);
     
     // Return true if the game exists and is updated at the database
-//    boolean update(Game game);
+    boolean update(Game game);
     
     // Return true if the game exists and is deleted from the database
 //    boolean deleteById(int id);

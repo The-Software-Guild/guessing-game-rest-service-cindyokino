@@ -67,16 +67,16 @@ public class GameDatabaseDao implements GameDao {
     }
 
 //    @Override
-//    public boolean update(Game game) {
-//        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE gameId = ?";
-//
-//        if (findById(game.getGameId()) != null) {
-//            jdbc.update(UPDATE_GAME, game.getAnswer(), game.getStatus(), game.getGameId());
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+    public boolean update(Game game) {
+        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE gameId = ?";
+
+        if (findById(game.getGameId()) != null) {
+            jdbc.update(UPDATE_GAME, game.getAnswer(), game.getStatus(), game.getGameId());
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 //    @Override
 //    @Transactional
