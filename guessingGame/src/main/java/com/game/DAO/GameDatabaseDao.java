@@ -13,7 +13,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -67,31 +66,31 @@ public class GameDatabaseDao implements GameDao {
         }
     }
 
-    @Override
-    public boolean update(Game game) {
-        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE gameId = ?";
+//    @Override
+//    public boolean update(Game game) {
+//        final String UPDATE_GAME = "UPDATE game SET answer = ?, status = ? WHERE gameId = ?";
+//
+//        if (findById(game.getGameId()) != null) {
+//            jdbc.update(UPDATE_GAME, game.getAnswer(), game.getStatus(), game.getGameId());
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
-        if (findById(game.getGameId()) != null) {
-            jdbc.update(UPDATE_GAME, game.getAnswer(), game.getStatus(), game.getGameId());
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    @Transactional
-    public boolean deleteById(int id) {
-        final String DELETE_GAME_BY_ID = "DELETE FROM game WHERE gameId = ?";
-
-        jdbc.update(DELETE_GAME_BY_ID, id);
-
-        if (findById(id) == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    @Override
+//    @Transactional
+//    public boolean deleteById(int id) {
+//        final String DELETE_GAME_BY_ID = "DELETE FROM game WHERE gameId = ?";
+//
+//        jdbc.update(DELETE_GAME_BY_ID, id);
+//
+//        if (findById(id) == null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
     
     
     // We use the RowMapper interface to turn a row of the ResultSet into an object. 

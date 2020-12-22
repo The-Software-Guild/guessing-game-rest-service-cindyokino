@@ -14,7 +14,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -73,7 +72,6 @@ public class RoundDatabaseDao implements RoundDao {
     public List<Round> findByGameId(int gameId) {
         try {
             final String SELECT_ROUND_BY_GAMEID = "SELECT * FROM round "
-                    + "INNER JOIN game ON round.gameId = game.gameId "
                     + "WHERE round.gameId =?";
             return jdbc.query(SELECT_ROUND_BY_GAMEID, new RoundDatabaseDao.RoundMapper(), gameId);
 
@@ -82,31 +80,31 @@ public class RoundDatabaseDao implements RoundDao {
         }
     }
 
-    @Override
-    public boolean update(Round round) {
-        final String UPDATE_ROUND = "UPDATE round SET guess = ?, timeOfTheGuess = ?, resultOfTheGuess =?, gameId = ? WHERE roundId = ?";
+//    @Override
+//    public boolean update(Round round) {
+//        final String UPDATE_ROUND = "UPDATE round SET guess = ?, timeOfTheGuess = ?, resultOfTheGuess =?, gameId = ? WHERE roundId = ?";
+//
+//        if (findById(round.getRoundId()) != null) {
+//            jdbc.update(UPDATE_ROUND, round.getGuess(), round.getTimeOfTheGuess(), round.getResultOfTheGuess());
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
-        if (findById(round.getRoundId()) != null) {
-            jdbc.update(UPDATE_ROUND, round.getGuess(), round.getTimeOfTheGuess(), round.getResultOfTheGuess());
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    @Transactional
-    public boolean deleteById(int id) {
-        final String DELETE_ROUND_BY_ID = "DELETE FROM game WHERE roundId = ?";
-
-        jdbc.update(DELETE_ROUND_BY_ID, id);
-
-        if (findById(id) == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    @Override
+//    @Transactional
+//    public boolean deleteById(int id) {
+//        final String DELETE_ROUND_BY_ID = "DELETE FROM game WHERE roundId = ?";
+//
+//        jdbc.update(DELETE_ROUND_BY_ID, id);
+//
+//        if (findById(id) == null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
 
     // We use the RowMapper interface to turn a row of the ResultSet into an object. 
@@ -118,9 +116,10 @@ public class RoundDatabaseDao implements RoundDao {
 
             Round round = new Round();
             round.setRoundId(rs.getInt("roundId"));
-            round.setGuess(rs.getString("setGuess"));
-            round.setTimeOfTheGuess(rs.getTime("setTimeOfTheGuess").toLocalTime());
-            round.setResultOfTheGuess(rs.getString("setResultOfTheGuess"));
+            round.setGuess(rs.getString("guess"));
+            round.setTimeOfTheGuess(rs.getTime("timeOfTheGuess").toLocalTime());
+            round.setResultOfTheGuess(rs.getString("resultOfTheGuess"));
+            round.setGameId(rs.getInt("gameId"));
 
             return round;
         }
