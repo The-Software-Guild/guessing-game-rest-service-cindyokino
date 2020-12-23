@@ -48,10 +48,16 @@ public class GuessingGameController {
     public ResponseEntity<Round> guess(@RequestBody GuessDto guessDto) {
         System.out.println("gameId" + guessDto.getGameId());
         System.out.println("guess" + guessDto.getGuess());
-        Round round = service.guess(guessDto.getGameId(),guessDto.getGuess());
-        return ResponseEntity
+        try{
+            Round round = service.guess(guessDto.getGameId(),guessDto.getGuess());
+            return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(round);
+        }catch(IllegalArgumentException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(null);
+        }
     }
     
     @GetMapping("/game")
